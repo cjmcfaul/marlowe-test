@@ -5,6 +5,8 @@ FROM python:3.9
 COPY ./requirements /requirements
 RUN pip install -r requirements/production.txt
 
+COPY . .
+
 # Add the rest of the code
 # Collect static files
 RUN mkdir staticfiles
@@ -13,8 +15,6 @@ RUN mkdir staticfiles
 RUN DJANGO_SETTINGS_MODULE=config.settings.production \
   DJANGO_SECRET_KEY=somethingsupersecret \
   python manage.py collectstatic --noinput
-
-COPY . .
 
 EXPOSE $PORT
 
