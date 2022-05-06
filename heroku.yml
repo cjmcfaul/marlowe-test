@@ -1,6 +1,6 @@
 build:
   docker:
-    web: ./compose/production/django/Dockerfile
+    web: Dockerfile
   config:
     DJANGO_SETTINGS_MODULE: config.settings.production
 release:
