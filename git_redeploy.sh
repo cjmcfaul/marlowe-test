@@ -28,4 +28,5 @@ fi
 # bring down old container
 docker_down="$(docker-compose -f production.yml down)"
 
+# run new container 
 docker_up="$(docker-compose -f production.yml up)"
