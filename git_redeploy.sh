@@ -15,6 +15,17 @@ else
   exit
 fi
 
+# build new docker image
 docker_build="$(docker-compose -f production.yml build)"
 
-echo "$docker_build"
+if [[ $docker_build == *"Successfully built"* ]]; then 
+  echo "docker successfully built"
+else 
+  echo "error building docker container"
+  echo "$docker_build"
+fi
+
+# bring down old container
+docker_down="$(docker-compose -f production.yml down)"
+
+docker_up="$(docker-compose -f production.yml up)"
