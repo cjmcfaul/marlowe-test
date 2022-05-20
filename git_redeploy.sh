@@ -20,4 +20,4 @@ fi
 
 docker_build=$(docker-compose -f production.yml build)
 
-echo $docker_build
+echo "$docker_build"
