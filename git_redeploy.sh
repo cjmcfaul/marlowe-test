@@ -15,6 +15,6 @@ else
   exit
 fi
 
-docker_build=$(docker-compose -f production.yml build)
+docker_build="$(docker-compose -f production.yml build)"
 
 echo "$docker_build"
