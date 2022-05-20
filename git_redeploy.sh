@@ -4,12 +4,9 @@ git_status="$(git pull origin main)"
 
 echo $git_status
 
-already="Already up-to-date."
-updating="Updating"
-
-if [$git_status == *"$updating"*]; then 
+if [$git_status == *"Updating"*]; then 
   echo "Updating App and redeploying"
-elif [ "$git_status" == "$already" ]; then
+elif [ "$git_status" == "Already up-to-date." ]; then
   echo "Up-to-date with git repository"
   exit 
 else
