@@ -2,13 +2,16 @@ set -o errexit
 
 git_status=$(git pull origin main)
 
-echo $git_status 
+echo "$git_status" 
 
-if [ "$git_status" == *"Already up-to-date."* ]; then
+already="Already up-to-date."
+updating="Updating"
+
+if ["$git_status" == *"$updating"*]; then 
+  echo "Updating App and redeploying"
+elif [ "$git_status" == *"$already"* ]; then
   echo "Up-to-date with git repository"
   exit 
-elif ["$git_status" == *"Updating"*]; then 
-  echo "Updating App and redeploying"
 else
   echo "Unable to pull new version from git"
   echo $git_status
