@@ -1,7 +1,7 @@
 set -o errexit
 
+# try to pull from github
 git_status="$(git pull origin main)"
-
 echo $git_status
 
 if [[ $git_status == *"Updating"* ]]; then 
