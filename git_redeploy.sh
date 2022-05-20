@@ -12,3 +12,5 @@ else
   echo $git_status
   exit
 fi
+
+docker_build=$(docker-compose -f production.yml build)
