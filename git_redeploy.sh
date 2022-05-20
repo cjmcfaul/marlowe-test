@@ -9,7 +9,7 @@ updating="Updating"
 
 if [$git_status == *"$updating"*]; then 
   echo "Updating App and redeploying"
-elif [ "$git_status" == *"$already"* ]; then
+elif [ "$git_status" == "$already" ]; then
   echo "Up-to-date with git repository"
   exit 
 else
