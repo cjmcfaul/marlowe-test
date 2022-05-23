@@ -23,6 +23,7 @@ if [[ $docker_build == *"Successfully built"* ]]; then
 else 
   echo "error building docker container"
   echo "$docker_build"
+  exit
 fi
 
 # bring down old container
